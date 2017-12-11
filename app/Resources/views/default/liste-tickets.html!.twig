@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  {#  {% block subtitle %}
+        <h2 class="page-header">Liste Tikects</h2>
+    {% endblock %}#}
+
+
+    <h3>Tickets</h3>
+
+    <table class="table table-striped">
+        <tr>
+
+            <th><h4>Numero</h4></th>
+            <th><h4>Shop</h4></th>
+            <th><h4>print_time</h4></th>
+
+
+
+
+
+
+
+        </tr>
+        {% for ticket in tickets %}
+
+            <tr>
+
+                <td><h5>{{ ticket.md5sum }}</h5></td>
+                <td><h5>{{ ticket.shop }}</h5></td>
+                <td><h5>{{ tickect.printTime }}</h5></td>
+
+
+
+
+            </tr>
+        {% endfor %}
+    </table>
+
+{% endblock %}

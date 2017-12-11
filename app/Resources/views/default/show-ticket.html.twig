@@ -1,0 +1,20 @@
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-5">
+        <h2>Détail ticket numéro : {{ticket.md5sum}} </h2>
+        <div class="" style="margin:0;">
+            <ul class="list-group">
+                <li class="list-group-item">Shop: {{ticket.shop}}</li>
+                <li class="list-group-item"> url: {{ticket.url}}</li>
+                <li class="list-group-item">user_id: {{ticket.userId}}</li>
+                {#<li class="list-group-item">ticket_id: {{ticket.md5sum}}</li>#}
+                <li class="list-group-item">print_time:{{ticket.printTime | date('Y-m-d')}}</li>
+                {#<li class="list-group-item">created at:{{ticket.createdAt}} | date('Y-m-d')}}</li>#}
+                {#<li class="list-group-item">updated at:{{ticket.updatedAt}}| date('Y-m-d')}}</li>#}
+
+
+            </ul>
+        </div>
+
+    </div>
+</div>

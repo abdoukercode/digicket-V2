@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <header>
+            <span><img class="logo" src="{{ asset('images/Logo_2013_Google.png') }}" alt="" width="152" height="60"></span>
+            <button class="hamburger">&#9776;</button>
+            <button class="cross">&#735;</button>
+        </header>
+
+        <div class="menu">
+            <ul>
+                <a href="#"><li>LINK ONE</li></a>
+                <a href="#"><li>LINK TWO</li></a>
+                <a href="#"><li>LINK THREE</li></a>
+                <a href="#"><li>LINK FOUR</li></a>
+                <a href="#"><li>LINK FIVE</li></a>
+            </ul>
+        </div>
+        <div class="row">
+
+            <div class="home-section left col-md-6">
+
+                <h2>Retrouver une facture
+                    <p>
+                        <a href="{{ path('search')}}">
+                        <button type="button" class="btn btn-primary btn-round-sm btn-sm"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                        </a>
+                    </p>
+                </h2>
+
+            </div>
+
+                <div class="home-section right col-md-6 ">
+
+                    <h2>Découvrir Digicket
+                    <p>
+                        <a href="https://www.google.fr/">
+                        <button type="button" class="btn btn-default btn-round-sm btn-md"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                        </a>
+                    </p>
+                </h2>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="footer">
+        <div class="texte-left">© Digicket 2018 - Tous droits réservés</div>
+        <div class="texte-right"><a href="#">CGV</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">MENTIONS LÉGALES</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">CONTACT</a></div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+{% endblock %}
+
+{% block stylesheets %}
+
+    {{ parent() }}
+{% endblock %}
+{% block javascripts %}
+
+
+
+
+{% endblock %}

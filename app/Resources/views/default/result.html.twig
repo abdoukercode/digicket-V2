@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+
+        {% block body %}
+
+
+
+            <h2 >
+
+                    <a href="{{ path('search')}}" style="float: right">
+                        <button type="button" class="btn btn-primary btn-round-sm btn-sm">Retrouver une facture<i class="fa fa-paper-plane" style="margin-left: 10px" aria-hidden="true"></i></button>
+                    </a>
+
+            </h2>
+            <div class="row">
+            <div class="col-md-2 col-md-offset-5">
+            <h2>le TicketOne recherché est : </h2>
+                <div class="" style="margin:0;">
+                <ul class="list-group">
+                    <li class="list-group-item">Shop: {{TicketOne.shop}}</li>
+                    <li class="list-group-item"> url: {{TicketOne.url}}</li>
+                    <li class="list-group-item">user_id: {{TicketOne.userId}}</li>
+                    <li class="list-group-item">ticket_id: {{TicketOne.md5sum}}</li>
+                    <li class="list-group-item">print_time:{{TicketOne.printTime | date('Y-m-d')}}</li>
+                    {#<li class="list-group-item">created at:{{TicketOne.createdAt}} | date('Y-m-d')}}</li>#}
+                    {#<li class="list-group-item">updated at:{{TicketOne.updatedAt}}| date('Y-m-d')}}</li>#}
+
+
+                </ul>
+                </div>
+
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+
+            <h3>Tickets Associés</h3>
+            <table class="table table-striped" center>
+                <tr>
+
+                    <th><h4>Numero</h4></th>
+                    <th><h4>Shop</h4></th>
+                    <th><h4>print_time</h4></th>
+
+
+
+
+
+
+
+                </tr>
+                {% for ticket in tickets %}
+
+                    <tr>
+
+                        <td><h5><a href="{{ path('ticket-show', {'ticket_id': ticket.md5sum}) }}">{{ ticket.md5sum }}</a></h5></td>
+                        <td><h5>{{ ticket.shop }}</h5></td>
+                        <td><h5>{{ ticket.printTime | date('Y-m-d') }}</h5></td>
+
+
+
+
+                    </tr>
+                {% endfor %}
+            </table>
+            </div>
+
+                </div>
+        {% endblock %}

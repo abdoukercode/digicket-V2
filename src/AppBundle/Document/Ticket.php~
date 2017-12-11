@@ -1,0 +1,69 @@
+<?php
+
+
+namespace AppBundle\Document;
+
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use AppBundle\Document\User;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @MongoDB\Document(repositoryClass="AppBundle\Repository\TicketRepository")
+ */
+class Ticket
+{
+
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $shop;
+
+    /**
+     * @MongoDB\Field(type="string", nullable=true)
+     */
+    protected $url;
+
+
+    /**
+     * @MongoDB\Id
+     */
+    protected $md5sum;
+
+    /**
+     * @MongoDB\Field(type="date", nullable="true")
+     */
+    protected $print_time;
+
+
+    /**
+     * @MongoDB\Field(type="boolean")
+     */
+    protected $is_pro = false;
+
+
+    /**
+     * @MongoDB\Field(type="date", nullable=true)
+     */
+    protected $created_at;
+
+    /**
+     * @MongoDB\Field(type="date", nullable=true)
+     */
+    protected $updated_at;
+
+
+    /**
+     *
+     *
+     *
+     *
+     * @MongoDB\ReferenceOne(targetDocument="User", simple=true, cascade="all")
+     *
+     *
+     */
+    protected $userId;
+
+
+}

@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="fond-popup col-md-4 col-md-offset-4">
+    <div class="col col-md-6 col-md-offset-2">
+        <img class="croix-fermeture" src="{{ asset('images/Logo_2013_Google.png') }}" alt="Digicket" width="14"
+             height="15" title="">
+        <div class="digicket" style="margin-top: 10px;">
+            <img class="logo-2" src="{{ asset('images/Logo_2013_Google.png') }}" alt="" width="106" height="79">
+            <p class="text-5" style="color:grey;">Retrouvez votre facture en quelques clics !</p>
+        </div>
+        <div class="formulaire">
+            {% form_theme form 'bootstrap_3_layout.html.twig' %}
+            {{ form_start(form, {
+                'attr': {'action':path('handleSearch')}
+            }) }}
+            <p class="text-6"><strong>Entrez votre référence client<br>et le numéro de facture</strong></p>
+            <div class="num-de-facture">
+                <div class="text-7">
+                    {{ form_row(form.userId) }}
+                </div>
+            </div>
+            <div class="reference">
+                <div class="text-8">
+                    {{ form_row(form.refFact) }}
+                </div>
+            </div>
+            <div class="bouton-3">
+                {{ form_row(form.save) }}
+
+            </div>
+            <p class="text-9"><i>Vous ne trouvez pas votre facture?</i><br><a href="#" class="text-style"><i>Cliquez ici</i></a></p>
+            {{ form_end(form) }}
+        </div>
+    </div>
+
+
+
+    {% endblock %}
+
+

@@ -1,0 +1,208 @@
+/*html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}*/
+
+
+/** Hamburger ***/
+body{
+    font-family: 'Noto Sans', sans-serif;
+    margin:0;
+    width:100%;
+    height:100vh;
+    background:#ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+header{
+    width:100%;
+    background:transparent;
+    height:60px;
+    line-height:60px;
+    border-bottom:none;
+    position: absolute;
+    z-index: 1000000000000;
+    margin-top: 30px;
+}
+.hamburger{
+    background:none;
+    position:absolute;
+    top:0;
+    right:0;
+    line-height:45px;
+    padding:5px 0px 0px 0px;
+    color: white;
+    border:0;
+    font-size: 3.6em;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    margin-right: 20px;
+
+}
+.cross{
+    background:none;
+    position:absolute;
+    top:0px;
+    right:0;
+    padding:7px 15px 0px 15px;
+    color:#999;
+    border:0;
+    font-size:8em;
+    line-height:65px;
+    font-weight:bold;
+    cursor:pointer;
+    outline:none;
+    z-index:10000000000000;
+}
+.menu{z-index:1000000; font-weight:bold; font-size:0.8em; width:100%; background:#f1f1f1;  position:absolute; text-align:center; font-size:12px;}
+.menu ul {margin: 0; padding: 0; list-style-type: none; list-style-image: none;}
+.menu li {display: block;   padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+.menu li:hover{display: block;    background:#ffffff; padding:15px 0 15px 0; border-bottom:#dddddd 1px solid;}
+.menu ul li a { text-decoration:none;  margin: 0px; color:#666;}
+.menu ul li a:hover {  color: #666; text-decoration:none;}
+.menu a{text-decoration:none; color:#666;}
+.menu a:hover{text-decoration:none; color:#666;}
+
+.glyphicon-home{
+    color:white;
+    font-size:1.5em;
+    margin-top:5px;
+    margin:0 auto;
+}
+header{display:inline-block; font-size:12px;}
+span{padding-left:20px;}
+a{color:#336699;}
+
+
+container-fluid {
+    position:relative;
+    padding-right: 0;
+}
+
+div.home-section {
+    height: 100vh;
+    /*display:table;*/
+    /*text-align: center;*/
+    color: #ffffff;
+    /*position: relative;*/
+    /*line-height: 100%;*/
+    display: flex;
+    align-items: center;
+    /*justify-content: center;*/
+}
+
+.home-section h2 {
+    margin: auto;
+    text-align: center;
+}
+
+.home-section.left {
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.89),
+            rgba(0, 0, 0, 0.89)
+    ),
+    url("../images/imagegauche.jpg") center center no-repeat;
+    background-size: cover;
+
+}
+
+.home-section.right {
+    background: linear-gradient(
+            rgba(2, 95, 155, 0.77),
+            rgba(0, 0, 0, 0.77)
+    ),
+    url("../images/guyoncomputer.jpg") center center no-repeat;
+    background-size: cover;
+
+}
+
+.btn-round-sm {
+    border-radius: 15px;
+    padding-left: 35px;
+    padding-right: 35px;
+
+}
+
+.fa-chevron-right {
+    display: block;
+    margin: 0 auto;
+    color: #007BFF;
+}
+
+button {
+    border: none;
+    outline: none;
+}
+
+.btn:focus, .btn:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.home-section.left {
+    position: relative;
+}
+
+.home-section.left img {
+    position: absolute;
+    top: 30px;
+    margin-left: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.home-section h2 p {
+    margin-top: 10px;
+}
+
+/*** Footer ***/
+.footer {
+    background-color: #0d0d0d !important;
+    height: 40px;
+    padding: 20px 40px 20px 40px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.texte-right {
+    float: right;
+}
+
+.texte-left {
+    float: left;
+}
+
+.texte-right a {
+    color: white;
+    text-decoration: none !important;
+    cursor: pointer;
+    color: #333;
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        text-align: center;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .texte-right {
+        float: none;
+        width: 100%;
+
+    }
+
+    .texte-left {
+        float: none;
+        width: 100%;
+    }
+}
+
+input#form_userId.form-control , input#form_refFact.form-control{
+    background-color: lightgrey;
+    padding-left: 30px;
+}

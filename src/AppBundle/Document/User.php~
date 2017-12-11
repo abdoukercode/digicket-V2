@@ -1,0 +1,81 @@
+<?php
+
+
+namespace AppBundle\Document;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
+use AppBundle\Document\Ticket;
+/**
+ * @MongoDB\Document(repositoryClass="AppBundle\Repository\UserRepository")
+ */
+class User
+{
+
+    /**
+     * @MongoDB\Id
+     */
+    protected $public_id;
+
+    /**
+     * @MongoDB\Field(type="string" , nullable=true)
+     */
+    protected $name;
+
+    /**
+     * @MongoDB\Field(type="string", nullable=true)
+     */
+    protected $username;
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $password;
+
+
+    /**
+     * @MongoDB\Field(type="string")
+     */
+    protected $email;
+
+
+    /**
+     * @MongoDB\Field(type="string" , nullable=true)
+     */
+    protected $facebook_uid;
+
+    /**
+     * @MongoDB\Field(type="string" , nullable=true)
+     */
+    protected $avatar;
+
+    /**
+     * @MongoDB\Field(type="boolean")
+     */
+    protected $enabled;
+
+
+    /**
+     * @MongoDB\Field(type="string", nullable=true)
+     */
+    protected $refresh_token;
+
+    /**
+     * @MongoDB\Field(type="date", nullable=true)
+     */
+    protected $created_at;
+
+
+    /**
+     * @MongoDB\Field(type="date", nullable=true)
+     */
+    protected $updated_at;
+
+
+    /**
+     * @MongoDB\Field
+     * @MongoDB\ReferenceMany(targetDocument="Ticket"  )
+     */
+    private $tickets;
+
+
+}
