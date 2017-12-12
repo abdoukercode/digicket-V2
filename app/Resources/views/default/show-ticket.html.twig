@@ -1,20 +1,44 @@
-
-<div class="row">
-    <div class="col-md-2 col-md-offset-5">
-        <h2>Détail ticket numéro : {{ticket.md5sum}} </h2>
-        <div class="" style="margin:0;">
-            <ul class="list-group">
-                <li class="list-group-item">Shop: {{ticket.shop}}</li>
-                <li class="list-group-item"> url: {{ticket.url}}</li>
-                <li class="list-group-item">user_id: {{ticket.userId}}</li>
-                {#<li class="list-group-item">ticket_id: {{ticket.md5sum}}</li>#}
-                <li class="list-group-item">print_time:{{ticket.printTime | date('Y-m-d')}}</li>
-                {#<li class="list-group-item">created at:{{ticket.createdAt}} | date('Y-m-d')}}</li>#}
-                {#<li class="list-group-item">updated at:{{ticket.updatedAt}}| date('Y-m-d')}}</li>#}
+{% extends 'base.html.twig' %}
 
 
-            </ul>
-        </div>
+        {% block body %}
 
-    </div>
-</div>
+            <h2>
+
+                <a href="{{ path('listTickets',{'user_id': sessionId }) }}" style="float: left">
+
+                    <button type="button" class="btn btn-primary btn-round-sm btn-sm">Liste des factures Associées<i
+                                class="fa fa-paper-plane" style="margin-left: 10px" aria-hidden="true"></i></button>
+                </a>
+
+            </h2>
+
+
+            <h2>
+
+                <a href="{{ path('search') }}" style="float: right">
+                    <button type="button" class="btn btn-primary btn-round-sm btn-sm">Retrouver une facture<i
+                                class="fa fa-paper-plane" style="margin-left: 10px" aria-hidden="true"></i></button>
+                </a>
+
+            </h2>
+            <div class="row digicket-centerdiv">
+
+                <h2>Détail ticket numéro : {{ ticket.md5sum }}</h2>
+                <div class="" style="margin:0;">
+                    <ul class="list-group">
+                        <li class="list-group-item">Shop: {{ ticket.shop }}</li>
+                        <li class="list-group-item"> url: {{ ticket.url }}</li>
+                        <li class="list-group-item">user_id: {{ ticket.userId }}</li>
+                        {#<li class="list-group-item">ticket_id: {{ticket.md5sum}}</li>#}
+                        <li class="list-group-item">print_time:{{ ticket.printTime | date('Y-m-d') }}</li>
+                        {#<li class="list-group-item">created at:{{ticket.createdAt}} | date('Y-m-d')}}</li>#}
+                        {#<li class="list-group-item">updated at:{{ticket.updatedAt}}| date('Y-m-d')}}</li>#}
+
+                    </ul>
+                    {#</div>#}
+
+                </div>
+            </div>
+
+        {% endblock %}

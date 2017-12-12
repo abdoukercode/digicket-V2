@@ -7,13 +7,10 @@ use AppBundle\Document\User;
 use AppBundle\Form\Type\LoginType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Symfony\Component\Validator\Constraints as Assert;
 
 
 class DefaultController extends Controller
@@ -75,7 +72,7 @@ class DefaultController extends Controller
 
     public function ticketAction(Request $request)
     {
-        $user= new User();
+        $user = new User();
         $user->setPassword('Paulvergnas');
         $user->setEmail("paul@test.com");
         $user->setEnabled(true);
@@ -137,17 +134,18 @@ class DefaultController extends Controller
 
             if ($user && $ticket) {
 
-                $session->set('userid', $userId);
+                $sessionId = $session->set('userid', $userId);
                 // var_dump($session->get('userid'));
 
                 $listTicket = $this->get('doctrine_mongodb')
                     ->getRepository('AppBundle:Ticket')
-                    ->findBy(['userId' => $session->get('userid')]);
+                    ->findBy(['userId' => $sessionId]);
 
                 //var_dump($listTicket); die;
                 return $this->render(':default:result.html.twig', array(
                     'TicketOne' => $ticket,
-                    'tickets' => $listTicket
+                    'tickets' => $listTicket,
+                    'sessionId' => $sessionId
 
                 ));
 
@@ -167,14 +165,47 @@ class DefaultController extends Controller
      */
     public function showTicketAction($ticket_id)
     {
+        $sessionId = $this->get('session')->get('userid');
+
         $ticket = $this->get('doctrine_mongodb')
             ->getRepository('AppBundle:Ticket')
             ->findOneBy(array('md5sum' => $ticket_id));
 
         return $this->render(':default:show-ticket.html.twig', array(
             'ticket' => $ticket,
+            'sessionId' => $sessionId
+
         ));
 
+
+    }
+
+    /**
+     * @Route("/list-tickets/", name="listTickets")
+     *
+     */
+    public function listTicketsAction()
+    {
+        $sessionId = $this->get('session')->get('userid');
+        $tickets = $this->get('doctrine_mongodb')
+            ->getRepository('AppBundle:Ticket')
+            ->findBy(array('userId' => $sessionId));
+        return $this->render(':default:liste-tickets.html.twig', array(
+            'tickets' => $tickets,
+            'sessionId' => $sessionId
+        ));
+
+
+    }
+
+    /**
+     * @Route("/decouvrir-digicket", name="digicket")
+     *
+     */
+
+    public function digicketAction(Request $request)
+    {
+        return $this->render(':default:digicket.html.twig');
 
     }
 

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="col-md-4 col-md-offset-4">
+
+        <h3>Tickets Associés à l'utilisateur : {{ sessionId }}</h3>
+        <table class="table table-striped" center>
+            <tr>
+
+                <th><h4>Numero</h4></th>
+                <th><h4>Shop</h4></th>
+                <th><h4>print_time</h4></th>
+
+
+            </tr>
+            {% for ticket in tickets %}
+
+                <tr>
+
+                    <td><h5><a href="{{ path('ticket-show', {'ticket_id': ticket.md5sum}) }}">{{ ticket.md5sum }}</a>
+                        </h5></td>
+                    <td><h5>{{ ticket.shop }}</h5></td>
+                    <td><h5>{{ ticket.printTime | date('Y-m-d') }}</h5></td>
+
+
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    </div>
+
+{% endblock %}
